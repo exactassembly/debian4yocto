@@ -13,7 +13,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y \
     make build-essential gcc-multilib libtool autoconf automake \
     cvs subversion git-core quilt diffstat libssl-dev \
     vim srecord texinfo procps net-tools screen ncurses-dev \
-    nano smartpm rpm python-rpm vim srecord hexedit ssh-client
+    nano smartpm rpm python-rpm vim srecord hexedit ssh-client libsdl-dev
 
 RUN DEBIAN_FRONTEND=noninteractive apt-get clean
 
