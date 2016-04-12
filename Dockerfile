@@ -1,4 +1,4 @@
-FROM debian:wheezy
+FROM debian:jessie
 
 # Configure timezone and locale
 RUN echo "UTC" > /etc/timezone && \
