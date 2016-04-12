@@ -23,10 +23,10 @@ RUN /usr/sbin/useradd minion -m -d /home/minion \
     && /usr/sbin/adduser minion sudo \
     && echo "%sudo  ALL=(ALL) NOPASSWD:ALL" >> /etc/sudoers
 
-RUN chown -R minion /build
-
 USER minion
 WORKDIR /build
+
+RUN sudo chown -R minion /build
 
 ENTRYPOINT ["/bin/bash","--login"]
 CMD ["-s"]
