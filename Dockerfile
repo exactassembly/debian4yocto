@@ -17,7 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         cvs subversion git-core quilt diffstat libssl-dev \
         vim srecord texinfo procps net-tools screen ncurses-dev \
         nano smartpm rpm python-rpm vim srecord hexedit ssh-client libsdl-dev \
-        python3 && \
+        python3 locales && \
     apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /var/lib/apt/lists/*
