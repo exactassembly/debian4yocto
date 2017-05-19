@@ -22,8 +22,10 @@ RUN DEBIAN_FRONTEND=noninteractive \
     rm -rf /tmp/* /var/tmp/* && \
     rm -rf /var/lib/apt/lists/*
 
-RUN echo ' en_US.UTF-8 UTF-8' >> /etc/locale.gen && \
-    locale-gen
+RUN locale-gen en_US.UTF-8
+ENV LANG en_US.UTF-8
+ENV LANGUAGE en_US:en
+ENV LC_ALL en_US.UTF-8
 
 RUN /usr/sbin/useradd minion -m -d /home/minion \
     && echo "minion:minion" | chpasswd \
