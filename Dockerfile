@@ -1,4 +1,4 @@
-FROM Debian:stretch
+FROM debian:stretch
 
 # Configure timezone and locale
 RUN echo "UTC" > /etc/timezone && \
