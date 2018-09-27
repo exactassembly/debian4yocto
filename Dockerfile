@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM Debian:wheezy
 
 # Configure timezone and locale
 RUN echo "UTC" > /etc/timezone && \
@@ -39,4 +39,4 @@ WORKDIR /build
 RUN sudo chown -R minion /build
 
 ENTRYPOINT ["/bin/bash","--login"]
-CMD ["-c","touch /tmp/keeprunning;while [[ -e /tmp/keeprunning ]]; do sleep 30; done"]
+CMD ["-c","tail -f /dev/null"]
