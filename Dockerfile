@@ -1,10 +1,10 @@
-FROM debian:wheezy
+FROM Debian:stretch
 
 # Configure timezone and locale
 RUN echo "UTC" > /etc/timezone && \
 	dpkg-reconfigure -f noninteractive tzdata
 
-RUN echo "deb http://ftp.debian.org/debian wheezy-backports main" > \
+RUN echo "deb http://ftp.debian.org/debian stretch-backports main" > \
     /etc/apt/sources.list.d/backports.list
 
 # Install Core packages
@@ -17,6 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
         cvs subversion git-core quilt diffstat libssl-dev \
         vim srecord texinfo procps net-tools screen ncurses-dev \
         nano smartpm rpm python-rpm vim srecord hexedit ssh-client libsdl-dev \
+	cryptsetup squashes-tools \
         python3 locales && \
     apt-get clean -y && apt-get autoclean -y && apt-get autoremove -y && \
     rm -rf /tmp/* /var/tmp/* && \
