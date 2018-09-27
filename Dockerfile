@@ -1,10 +1,10 @@
-FROM Debian:wheezy
+FROM debian:wheezy
 
 # Configure timezone and locale
 RUN echo "UTC" > /etc/timezone && \
-dpkg-reconfigure -f noninteractive tzdata
+	dpkg-reconfigure -f noninteractive tzdata
 
-RUN echo "deb http://ftp.debian.org/debian jessie-backports main" > \
+RUN echo "deb http://ftp.debian.org/debian wheezy-backports main" > \
     /etc/apt/sources.list.d/backports.list
 
 # Install Core packages
