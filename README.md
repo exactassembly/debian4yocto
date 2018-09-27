@@ -4,8 +4,10 @@ debian based Docker container with all dependencies for Yocto
 For automation associated with building Yocto environments using Ruby/Rake with
 a simple Rakefile see https://github.com/exactassembly/bitumen
 
-*NOTE*  Due to changes in Yocto, current poky fails with the version of Git
-available in debian:wheezy, so this repo has been switched to debian:jessie
+The container is configured to come up with minimal idle CPU usage (blocking on a
+read of /dev/null) so interaction with the container is usually done with docker exec.
+
+*NOTE*  Due to changes in Yocto, current poky requires >= python3.4
 
 Username: minion
 Password: minion
@@ -17,7 +19,9 @@ This repository does not contain any Yocto source, you must add the yocto files
 for it to work.  Use Git to clone a copy of the Yocto ("Poky") sources inside
 the container and then run oe-init-build-env:
 
-    docker run -a STDIN -a STDOUT -a STDERR -i -t y3ddet/debian4yocto
+    docker run --name mycontainer -d y3ddet/debian4yocto 
+    docker exec -it mycontainer /bin/bash -l    
+      ...
 
     minion@8f7943ab2a3b:/build$  git clone git://git.yoctoproject.org/poky.git /build/poky
       ...
@@ -40,7 +44,7 @@ the container and then run oe-init-build-env:
 
 *NOTE* The stock Yocto Poky installation above is of limited utility, you should 
 look at the Yocto Project documentation to better understand the use of bitbake
-layers, recipes, and machine targets:  http://www.yoctoproject.org/docs/2.0.1/mega-manual/mega-manual.html
+layers, recipes, and machine targets:  http://www.yoctoproject.org/docs/2.4/mega-manual/mega-manual.html
 
 
     
