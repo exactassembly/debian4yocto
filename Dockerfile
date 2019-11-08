@@ -17,6 +17,7 @@ RUN DEBIAN_FRONTEND=noninteractive \
     apt-get upgrade -y && \
     echo 'en_US.UTF-8 UTF-8' >> /etc/locale.gen && \
     apt-get install -y  -q \
+        libc6 libstdc++6 python-minimal ca-certificates tar \
         netcat apt-utils sed rsync gawk wget curl unzip sudo cpio chrpath \
         make build-essential gcc-multilib libtool autoconf automake \
         cvs subversion git-core quilt diffstat libssl-dev \
